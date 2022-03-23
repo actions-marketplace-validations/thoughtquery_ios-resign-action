@@ -28,7 +28,7 @@ security list-keychain -d user -s "$KEYCHAIN_PATH"
 
 # If second mobileprovisioning file detected, then resign with both
 if [[ -n "$MOBILEPROVISION2" ]]; then
-    fastlane sigh resign "$IPA_PATH" --keychain_path "$KEYCHAIN_PATH" --signing_identity "$SIGNING_IDENTITY" --provisioning_profile "CI.mobileprovision" --provisioning_profile "CI2.mobileprovision"
+    fastlane sigh resign "$IPA_PATH" --keychain_path "$KEYCHAIN_PATH" --signing_identity "$SIGNING_IDENTITY" --provisioning_profile "CI.mobileprovision" -p "CI2.mobileprovision"
 else
     astlane sigh resign "$IPA_PATH" --keychain_path "$KEYCHAIN_PATH" --signing_identity "$SIGNING_IDENTITY" --provisioning_profile "CI.mobileprovision"
 fi
